@@ -1,16 +1,13 @@
-with "clib_rclcpp";
-with "clib_static_transform_broadcaster_node";
-
-with "clib_libstatistics_collector";
-with "clib_statistics_msgs_rosidl_typesupport_cpp";
+--  with "clib_libstatistics_collector";
+--  with "clib_statistics_msgs_rosidl_typesupport_cpp";
 --  These Two Are not Really Needed, Depending On A Mysterious Node Argument
 --  Passed or not To The Listener for TF2. Leaving It in Just in case.
 
-with "clib_orocos_kdl";
-with "clib_tf2_msgs_rosidl_typesupport_cpp";
-with "clib_tf2_ros";
 with "rosidl";
 with "rcl";
+
+with "rclada_tf2_header_imports";
+with "rclada_tf2_linker_imports";
 
 library project Tf2_Ros is
 

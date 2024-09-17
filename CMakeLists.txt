@@ -29,11 +29,11 @@ find_package(rosidl_generator_ada REQUIRED)
 find_package(rclada REQUIRED)
 
 add_executable(static_pub cpp_tests/static_pub.cpp)
-ament_target_dependencies(static_pub 
-  rclcpp 
-  geometry_msgs 
+ament_target_dependencies(static_pub
+  rclcpp
+  geometry_msgs
   tf2_geometry_msgs
-  tf2_msgs 
+  tf2_msgs
   tf2_ros)
 install(TARGETS
   static_pub
@@ -41,11 +41,30 @@ install(TARGETS
 
 ada_begin_package()
 
-ada_import_c_libraries(${libstatistics_collector_LIBRARIES})
-ada_import_c_libraries(${rclcpp_LIBRARIES})
-ada_import_c_libraries(${tf2_kdl_LIBRARIES})
-ada_import_c_libraries(${tf2_msgs_LIBRARIES})
-ada_import_c_libraries(${tf2_ros_LIBRARIES})
+ada_gpr_headers(rclada_tf2
+    geometry_msgs
+    libstatistics_collector
+    rcl_interfaces
+    rclcpp
+    rcpputils
+    rosidl_runtime_cpp
+    rosidl_typesupport_introspection_cpp
+    statistics_msgs
+    std_msgs
+    tf2
+    tf2_geometry_msgs
+    tf2_msgs
+    tf2_ros
+    tracetools
+)
+
+ada_gpr_link(rclada_tf2
+    libstatistics_collector
+    rclcpp
+    tf2_kdl
+    tf2_msgs
+    tf2_ros
+)
 
 file(GLOB
 	_headers

@@ -1,5 +1,7 @@
 pragma Ada_2012;
+
 pragma Style_Checks (Off);
+pragma Warnings (Off, "-gnatwu");
 
 with Interfaces.C; use Interfaces.C;
 with Interfaces.C.Strings;
@@ -59,3 +61,6 @@ package rclada_tf2_dark_hpp is
         External_Name => "_ZN15rclada_tf2_dark14dark_transformENS_7Point3DEPcS1_";
 
 end rclada_tf2_dark_hpp;
+
+pragma Style_Checks (On);
+pragma Warnings (On, "-gnatwu");
